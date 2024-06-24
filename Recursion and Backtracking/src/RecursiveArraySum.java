@@ -13,5 +13,10 @@ public class RecursiveArraySum {
             sum += arr[i];
         }
         System.out.println("Itteration sum:" + sum);
+        sum = sumNumbers(arr);
+        System.out.println("Recursion sum:" + sum);
+    }
+    public static int sumNumbers(int[] numbers){
+        
     }
 }
