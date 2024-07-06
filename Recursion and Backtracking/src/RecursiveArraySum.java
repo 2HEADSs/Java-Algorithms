@@ -9,15 +9,21 @@ public class RecursiveArraySum {
                 .toArray();
         int sum = 0;
 
-        for (int i = 0; i < args.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
-        System.out.println("Itteration sum:" + sum);
-        sum = sumNumbers(arr);
+        System.out.println("Iteration sum:" + sum);
+        sum += sumNumbers(arr, 0);
+//        sum = sumNumbers(arr, 0); with comment part in recursion
         System.out.println("Recursion sum:" + sum);
     }
-    public static int sumNumbers(int[] numbers) {
 
-        return 0;
+    public static int sumNumbers(int[] numbers, int index) {
+        if (index >= numbers.length) {
+            return 0;
+        }
+
+        //        return sumNumbers(numbers, index + 1);
+        return numbers[index] + sumNumbers(numbers, index + 1);
     }
 }
