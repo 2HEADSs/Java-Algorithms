@@ -13,8 +13,9 @@ public class RecursiveArraySum {
             sum += arr[i];
         }
         System.out.println("Iteration sum:" + sum);
-        sum += sumNumbers(arr, 0);
-//        sum = sumNumbers(arr, 0); with comment part in recursion
+//        sum += sumNumbers(arr, 0);
+//        with comment part in recursion
+        sum = sumNumbers(arr, 0);
         System.out.println("Recursion sum:" + sum);
     }
 
@@ -23,7 +24,7 @@ public class RecursiveArraySum {
             return 0;
         }
 
-        //        return sumNumbers(numbers, index + 1);
+//                return sumNumbers(numbers, index + 1);
         return numbers[index] + sumNumbers(numbers, index + 1);
     }
 }
