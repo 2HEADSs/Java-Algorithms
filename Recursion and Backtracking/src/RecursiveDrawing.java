@@ -18,6 +18,11 @@ public class RecursiveDrawing {
         }
         System.out.println();
         drawFigure(n - 1, f + 1);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("#");
+        }
+        System.out.println();
     }
 
 }
