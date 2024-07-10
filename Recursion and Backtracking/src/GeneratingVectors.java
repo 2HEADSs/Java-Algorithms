@@ -7,15 +7,18 @@ public class GeneratingVectors {
 
         Integer[] memory = new Integer[n];
 
-        fillVector(memory, memory.length - 1);
+        fillVector(memory, 0);
     }
 
     private static void fillVector(Integer[] memory, int index) {
-        if (index < 0) {
+        if (index >= memory.length) {
             print(memory);
             return;
         }
-        fillVector(memory, index - 1);
+        for (int i = 0; i <= 1; i++) {
+            memory[index] = i;
+            fillVector(memory, index + 1);
+        }
     }
 
     private static void print(Integer[] memory) {
