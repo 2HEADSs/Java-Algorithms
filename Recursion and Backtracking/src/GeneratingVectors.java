@@ -13,13 +13,14 @@ public class GeneratingVectors {
     private static void fillVector(Integer[] memory, int index) {
         if (index < 0) {
             print(memory);
+            return;
         }
         fillVector(memory, index - 1);
     }
 
     private static void print(Integer[] memory) {
         for (Integer integer : memory) {
-            System.out.println(integer);
+            System.out.print(integer);
         }
         System.out.println();
     }
