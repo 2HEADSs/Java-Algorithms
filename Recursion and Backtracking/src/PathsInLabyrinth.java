@@ -31,6 +31,7 @@ public class PathsInLabyrinth {
 
         if (labyrinth[row][col] == 'e') {
             printPath();
+            path.remove(path.size() - 1);
             return;
         }
 
@@ -40,7 +41,9 @@ public class PathsInLabyrinth {
         findPath(labyrinth, row + 1, col, 'D');
         findPath(labyrinth, row, col - 1, 'L');
         findPath(labyrinth, row, col + 1, 'R');
+
         labyrinth[row][col] = '-';
+
         path.remove(path.size() - 1);
     }
 
@@ -48,7 +51,7 @@ public class PathsInLabyrinth {
         path.remove(0);
 
         for (int i = 1; i < path.size(); i++) {
-            System.out.println(path.get(i));
+            System.out.print(path.get(i));
         }
         System.out.println();
     }
