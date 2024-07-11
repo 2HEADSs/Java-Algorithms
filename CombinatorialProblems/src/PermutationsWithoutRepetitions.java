@@ -1,10 +1,16 @@
+import java.util.Scanner;
+
 public class PermutationsWithoutRepetitions {
-    public static String[] elements = {"A", "B", "C"};
-    public static String[] permutes = new String[elements.length];
-    public static boolean[] used = new boolean[elements.length];
+    public static String[] elements;
+    public static String[] permutes;
+    public static boolean[] used;
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        elements = scanner.nextLine().split("//s+");
+
+        permutes = new String[elements.length];
+        used = new boolean[elements.length];
 
         permute(0);
     }
