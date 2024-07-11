@@ -21,6 +21,7 @@ public class PermutationsWithoutRepetitionsWithSwap {
         for (int i = index + 1; i < elements.length; i++) {
             swap(elements, index, i);
             permute(index + 1);
+            swap(elements, index, i);
         }
     }
 
