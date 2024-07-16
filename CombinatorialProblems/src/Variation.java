@@ -3,28 +3,30 @@ import java.util.Scanner;
 
 public class Variation {
     public static String[] elements;
+    public static String[] variations;
+    public static boolean[] used;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         elements = scanner.nextLine().split("//s+");
-
-        permute(0);
+        int k = Integer.parseInt(scanner.nextLine());
+        variations = new String[k];
+        used = new boolean[elements.length];
+        variations(0);
     }
 
-    private static void permute(int index) {
-        if (index == elements.length) {
-            print(elements);
+    private static void variations(int index) {
+        if (index == variations.length) {
+            print(variations);
             return;
         }
-        permute(index + 1);
-        HashSet<String> swapped = new HashSet<>();
-        swapped.add(elements[index]);
-        for (int i = index + 1; i < elements.length; i++) {
-            if (!swapped.contains(elements[i])) {
-                swap(elements, index, i);
-                permute(index + 1);
-                swap(elements, index, i);
-                swapped.add(elements[i]);
+
+        for (int i = 0; i < elements.length; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                variations[index] = elements[i];
+                variations(index + 1);
+                used[i] = false;
             }
         }
     }
