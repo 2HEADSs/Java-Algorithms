@@ -1,7 +1,6 @@
-import java.util.HashSet;
 import java.util.Scanner;
 
-public class Variation {
+public class VariationWithoutRepetitions {
     public static String[] elements;
     public static String[] variations;
     public static boolean[] used;
