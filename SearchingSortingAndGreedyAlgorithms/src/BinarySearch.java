@@ -1,7 +1,10 @@
+import java.util.Arrays;
+
 public class BinarySearch {
     public static void main(String[] args) {
-        int[]arr = {13,2,34,73,24,86};
-        System.out.println(indexOf(arr,73));
+        int[] arr = {13, 2, 34, 73, 24, 86};
+        Arrays.sort(arr);
+        System.out.println(indexOf(arr, 73));
     }
 
     private static int indexOf(int[] arr, int key) {
