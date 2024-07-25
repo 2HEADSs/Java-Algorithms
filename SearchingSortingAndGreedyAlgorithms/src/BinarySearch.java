@@ -1,10 +1,15 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = {13, 2, 34, 73, 24, 86};
-        Arrays.sort(arr);
-        System.out.println(indexOf(arr, 73));
+       Scanner scanner = new Scanner(System.in);
+        int[] arr = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+       int key = Integer.parseInt(scanner.nextLine());
+
+        System.out.println(indexOf(arr, key));
     }
 
     private static int indexOf(int[] arr, int key) {
