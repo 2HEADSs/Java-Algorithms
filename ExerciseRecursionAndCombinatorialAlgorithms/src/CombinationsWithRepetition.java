@@ -14,7 +14,18 @@ public class CombinationsWithRepetition {
         k = Integer.parseInt(reader.readLine());
         arr = new int[k];
 
-        
+        combinations(0, 1);
+    }
+
+    private static void combinations(int index, int start) {
+        if (index == arr.length) {
+            printArr();
+        } else {
+            for (int i = start; i <= n; i++) {
+                arr[index] = i;
+                combinations(index + 1, );
+            }
+        }
     }
 
     private static void printArr() {
