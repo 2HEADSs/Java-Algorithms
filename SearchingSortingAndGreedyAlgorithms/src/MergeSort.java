@@ -3,30 +3,45 @@ import java.util.Scanner;
 
 public class MergeSort {
     public static void main(String[] args) {
-       Scanner scanner = new Scanner(System.in);
-        int[] arr = Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-       int key = Integer.parseInt(scanner.nextLine());
+        int[] arr = {5, 4, 3, 2, 1, 82, 1};
+        sort(arr);
 
-        System.out.println(indexOf(arr, key));
+        for (int rand : arr) {
+            System.out.println(rand);
+        }
     }
 
-    private static int indexOf(int[] arr, int key) {
-        int start = 0;
-        int end = arr.length - 1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            int current = arr[mid];
-            if (key < current) {
-                end = mid - 1;
-            } else if (key > current) {
-                start = mid + 1;
-            } else {
-                return mid;
-            }
+    public static void sort(int[] arr) {
+        mergeSort(arr, 0, arr.length - 1);
+    }
+
+    private static void mergeSort(int[] arr, int begin, int end) {
+        if (begin >= end) {
+            return;
+        }
+        int mid = (begin + end) / 2;
+
+
+        mergeSort(arr, begin, mid);
+        mergeSort(arr, mid + 1, end);
+
+        merge(arr, begin, mid, end);
+    }
+
+    private static void merge(int[] arr, int begin, int mid, int end) {
+        if (mid < 0 || mid >= arr.length || arr[mid] < arr[mid + 1]) {
+            return;
         }
 
-        return -1;
+        int left = begin;
+        int right = mid + 1;
+
+        int[]helper = new int[arr.length]
+    }
+
+    private static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
     }
 }
