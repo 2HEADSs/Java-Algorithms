@@ -3,11 +3,15 @@ import java.util.Scanner;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5, 4, 3, 2, 1, 82, 1};
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
         sort(arr);
 
-        for (int rand : arr) {
-            System.out.println(rand);
+        for (int number : arr) {
+            System.out.println(number + " ");
         }
     }
 
@@ -36,12 +40,21 @@ public class MergeSort {
         int left = begin;
         int right = mid + 1;
 
-        int[]helper = new int[arr.length]
-    }
+        int[] helper = new int[arr.length];
+        for (int i = begin; i <=end ; i++) {
+            helper[i] = arr[i];
+        }
 
-    private static void swap(int[] arr, int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
+        for (int i = begin; i <= end; i++) {
+            if (left > mid) {
+                arr[i] = helper[right++];
+            } else if (right > end) {
+                arr[i] = helper[left++];
+            } else if (helper[left] < helper[right]) {
+                arr[i] = helper[left++];
+            } else {
+                arr[i] = helper[right++];
+            }
+        }
     }
 }
